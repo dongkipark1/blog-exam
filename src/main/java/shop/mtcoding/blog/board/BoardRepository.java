@@ -29,4 +29,11 @@ public class BoardRepository {
         List<Board> boardList = query.getResultList();
         return boardList;
     }
+
+    @Transactional
+    public void deleteById(int id) {
+        Query query = em.createNativeQuery("delete from board_tb where id = ?");
+        query.setParameter(1, id);
+        query.executeUpdate();
+    }
 }
