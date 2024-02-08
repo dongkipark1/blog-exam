@@ -11,4 +11,11 @@ public class BoardRequest {
         private String content;
 
     }
+
+    @Data
+    public static class UpdateDTO{
+        private String author;
+        private String title;
+        private String content;
+    }
 }

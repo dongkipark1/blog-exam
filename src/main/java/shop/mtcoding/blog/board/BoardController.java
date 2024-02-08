@@ -30,8 +30,12 @@ public class BoardController {
         return "board/saveForm";
     }
 
-    @GetMapping("/board/{id}/updateForm")
-    public String updateForm(@PathVariable int id) {
+    @PostMapping("/board/{id}/updateForm")
+    public String updateForm(@PathVariable int id, HttpServletRequest request) {
+
+        Board board = boardRepository.findById(id);
+        request.setAttribute("board", board);
+
         return "board/updateForm";
     }
 
@@ -56,8 +60,9 @@ public class BoardController {
     }
 
     @PostMapping("/board/{id}/update")
-    public String update(@PathVariable int id){
+    public String update(@PathVariable int id, BoardRequest.UpdateDTO requestDTO){
 
+        boardRepository.update(requestDTO,id);
         return "redirect:/";
     }
 
