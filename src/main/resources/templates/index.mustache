@@ -1,7 +1,5 @@
 {{> layout/header}}
-
 <div class="container p-5">
-
     <table class="table table-striped">
         <thead>
         <tr>
@@ -14,23 +12,23 @@
         </thead>
         <tbody>
         {{#boardList}}
-           <tr>
-               <td>{{id}}</td>
-               <td>{{title}}</td>
-               <td>{{content}}</td>
-               <td>{{author}}</td>
-               <td>
-                   <div class="d-flex">
-                       <form action="/board/{{id}}/delete" method="post">
-                           <button class="btn btn-danger">삭제</button>
-                       </form>
-                       <form action="/board/{{id}}/updateForm" method="post">
-                           <button class="btn btn-warning">수정</button>
-                       </form>
-                   </div>
-               </td>
+            <tr>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+                <td>{{content}}</td>
+                <td>{{author}}</td>
+                <td>
+                    <div class="d-flex">
+                        <form action="/board/{{id}}/delete" method="post">
+                            <button class="btn btn-danger">삭제</button>
+                        </form>
+                        <form action="/board/{{id}}/updateForm" method="post">
+                            <button class="btn btn-warning">수정</button>
+                        </form>
+                    </div>
+                </td>
 
-           </tr>
+            </tr>
         {{/boardList}}
 
         </tbody>
@@ -38,6 +36,11 @@
 
     <ul class="pagination d-flex justify-content-center">
         <li class="page-item {{#first}}disabled{{/first}}"><a class="page-link" href="?page={{prevPage}}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="?/page=0">1</a></li>
+        <li class="page-item"><a class="page-link" href="?/page=1">2</a></li>
+        <li class="page-item"><a class="page-link" href="?/page=2">3</a></li>
+        <li class="page-item"><a class="page-link" href="?/page=3">4</a></li>
+        <li class="page-item"><a class="page-link" href="?/page=4">5</a></li>
         <li class="page-item {{#last}}disabled{{/last}}"><a class="page-link" href="?page={{nextPage}}">Next</a></li>
     </ul>
 
